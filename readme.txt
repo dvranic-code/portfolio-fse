@@ -1,4 +1,4 @@
-== Portfolio FSE 2 ==
+== Portfolio FSE ==
 
 Contributors: Dejan Rudić Vranić
 Requires at least: 6.9
@@ -21,8 +21,8 @@ Workshop demo theme — WCEU 2026 Kraków. Build your developer portfolio with F
 
 == Copyright ==
 
-Portfolio FSE 2 WordPress Theme, (C) 2026 Dejan Rudić Vranić
-Portfolio FSE 2 is distributed under the terms of the GNU GPL.
+Portfolio FSE WordPress Theme, (C) 2026 Dejan Rudić Vranić
+Portfolio FSE is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
