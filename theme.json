@@ -3,22 +3,259 @@
 	"settings": {
 		"appearanceTools": true,
 		"layout": {
-			"contentSize": "620px",
-			"wideSize": "1000px"
+			"contentSize": "720px",
+			"wideSize": "1440px"
 		},
 		"spacing": {
-			"units": [ "%", "px", "em", "rem", "vh", "vw" ]
+			"units": [ "%", "px", "em", "rem", "vh", "vw" ],
+			"spacingScale": {
+				"operator": "*",
+				"increment": 1.5,
+				"steps": 6,
+				"mediumStep": 1,
+				"unit": "rem"
+			}
 		},
 		"typography": {
+			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
-					"name": "System Font",
-					"slug": "system-font"
+					"fontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+					"name": "Inter",
+					"slug": "sans",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/inter-400.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/inter-500.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/inter-600.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/inter/inter-700.woff2"
+							]
+						}
+					]
+				},
+				{
+					"fontFamily": "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+					"name": "JetBrains Mono",
+					"slug": "mono",
+					"fontFace": [
+						{
+							"fontFamily": "JetBrains Mono",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/jetbrains-mono-400.woff2"
+							]
+						},
+						{
+							"fontFamily": "JetBrains Mono",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/jetbrains-mono-500.woff2"
+							]
+						},
+						{
+							"fontFamily": "JetBrains Mono",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/jetbrains-mono-600.woff2"
+							]
+						},
+						{
+							"fontFamily": "JetBrains Mono",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/jetbrains-mono-700.woff2"
+							]
+						}
+					]
+				}
+			],
+			"defaultFontSizes": false,
+			"fontSizes": [
+				{
+					"slug": "small",
+					"name": "Small",
+					"size": "0.875rem",
+					"fluid": false
+				},
+				{
+					"slug": "medium",
+					"name": "Medium",
+					"size": "1.125rem",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
+				},
+				{
+					"slug": "large",
+					"name": "Large",
+					"size": "1.25rem",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.25rem"
+					}
+				},
+				{
+					"slug": "x-large",
+					"name": "X-Large",
+					"size": "2rem",
+					"fluid": {
+						"min": "1.5rem",
+						"max": "2rem"
+					}
+				},
+				{
+					"slug": "xx-large",
+					"name": "XX-Large",
+					"size": "3.5rem",
+					"fluid": {
+						"min": "2.5rem",
+						"max": "3.5rem"
+					}
+				},
+				{
+					"slug": "huge",
+					"name": "Huge",
+					"size": "6rem",
+					"fluid": {
+						"min": "4rem",
+						"max": "6rem"
+					}
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"useRootPaddingAwareAlignments": true,
+		"color": {
+			"defaultPalette": false,
+			"palette": [
+				{
+					"name": "Background",
+					"slug": "background",
+					"color": "#0a0a0f"
+				},
+				{
+					"name": "Background Alt",
+					"slug": "background-alt",
+					"color": "#10101a"
+				},
+				{
+					"name": "Surface Light",
+					"slug": "surface-light",
+					"color": "#faf8f4"
+				},
+				{
+					"name": "Surface Light Alt",
+					"slug": "surface-light-alt",
+					"color": "#f2efe7"
+				},
+				{
+					"name": "Foreground",
+					"slug": "foreground",
+					"color": "#12121a"
+				},
+				{
+					"name": "Foreground Muted",
+					"slug": "foreground-muted",
+					"color": "#6b6860"
+				},
+				{
+					"name": "Foreground Light",
+					"slug": "foreground-light",
+					"color": "#faf8f4"
+				},
+				{
+					"name": "Accent Primary",
+					"slug": "accent-primary",
+					"color": "#00d4ff"
+				},
+				{
+					"name": "Accent Secondary",
+					"slug": "accent-secondary",
+					"color": "#ff7a3d"
+				},
+				{
+					"name": "Accent Tertiary",
+					"slug": "accent-tertiary",
+					"color": "#2e7fff"
+				},
+				{
+					"name": "Border",
+					"slug": "border",
+					"color": "#1f1f2a"
+				},
+				{
+					"name": "Border Light",
+					"slug": "border-light",
+					"color": "#d9d4c5"
+				}
+			]
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var:preset|font-family|sans"
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono"
+				}
+			}
+		}
 	},
 	"templateParts": [
 		{
