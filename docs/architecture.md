@@ -61,7 +61,7 @@ portfolio-fse/
 
 ---
 
-## 3. Architectural Principles
+## 3. Architectural Principles.
 
 ### 3.1 PHP → FSE Mental Model (the workshop's core teaching)
 
