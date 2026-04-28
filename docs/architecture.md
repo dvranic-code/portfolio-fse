@@ -30,16 +30,18 @@ Persona reference: `../../../../../persona.md` (project root).
 portfolio-fse/
 ├── style.css # theme header + minimal custom CSS (< 50 lines)
 ├── theme.json # design system: colors, typography, spacing, layout
-├── functions.php # minimal — pattern category registration only
+├── functions.php # pattern category + CPT + taxonomy registration
 ├── README.md # public-facing repo readme (final task)
 ├── screenshot.png # 1200×900 theme screenshot
 ├── claude.md # theme rules + design log
 ├── docs/
 │ └── architecture.md # this file
 ├── templates/
-│ ├── index.html # homepage / blog index
-│ ├── single.html # single post
-│ ├── archive.html # category / tag / portfolio archive
+│ ├── index.html # homepage
+│ ├── archive-portfolio.html # Portfolio CPT archive (/projects/)
+│ ├── single-portfolio.html # Single Portfolio project
+│ ├── archive.html # generic archive fallback (tags, dates)
+│ ├── single.html # generic single post fallback
 │ ├── page.html # generic page
 │ ├── 404.html # terminal-style 404
 │ └── search.html # search results
@@ -65,25 +67,37 @@ portfolio-fse/
 
 ### 3.1 PHP → FSE Mental Model (the workshop's core teaching)
 
-| Classic PHP                             | FSE Equivalent                | Lives in                 |
-| --------------------------------------- | ----------------------------- | ------------------------ |
-| `wp_enqueue_style()` in `functions.php` | Design tokens in `theme.json` | `theme.json`             |
-| `header.php`                            | Template part                 | `parts/header.html`      |
-| `footer.php`                            | Template part                 | `parts/footer.html`      |
-| `WP_Query` + `while (have_posts())`     | Query Loop block              | `templates/archive.html` |
-| `get_template_part('hero')`             | Synced or unsynced Pattern    | `patterns/hero.php`      |
-| `page.php`, `single.php`, etc.          | Block templates (HTML)        | `templates/*.html`       |
-| `register_post_type()` for Projects     | Posts + `portfolio` category  | (no PHP)                 |
-| Conditional CSS (`is_front_page`)       | Block-level style variations  | block markup             |
+| Classic PHP                             | FSE Equivalent                 | Lives in                 |
+| --------------------------------------- | ------------------------------ | ------------------------ |
+| `wp_enqueue_style()` in `functions.php` | Design tokens in `theme.json`  | `theme.json`             |
+| `header.php`                            | Template part                  | `parts/header.html`      |
+| `footer.php`                            | Template part                  | `parts/footer.html`      |
+| `WP_Query` + `while (have_posts())`     | Query Loop block               | `templates/archive.html` |
+| `get_template_part('hero')`             | Synced or unsynced Pattern     | `patterns/hero.php`      |
+| `page.php`, `single.php`, etc.          | Block templates (HTML)         | `templates/*.html`       |
+| `register_post_type()` for Projects     | `portfolio` CPT + `technology` | `functions.php`          |
+|                                         | taxonomy                       |                          |
+| Conditional CSS (`is_front_page`)       | Block-level style variations   | block markup             |
 
-### 3.2 No Custom Post Type
+### 3.2 Custom Post Type for Projects
 
-Projects use **standard Posts** with a `portfolio` category. Rationale:
+Projects use a dedicated `portfolio` Custom Post Type with a `technology`
+custom taxonomy. Both registered in `functions.php` on the `init` hook,
+both with `show_in_rest => true`. Rationale:
 
-- Workshop time is finite. Registering a CPT requires `functions.php` work
-  and breaks the "no PHP" promise we make in the first 25 minutes.
-- The Query Loop block filters by category natively. Same end result.
-- Sample content WXR is simpler.
+- **Real-world fit.** Agencies and freelancers ship CPTs on every project
+  — services, projects, team, testimonials. Filtering Posts by category
+  is the toy version of what the audience actually builds at work.
+- **Better Query Loop teaching (Task 5).** Demonstrating Query Loop with
+  a real CPT — the most common production scenario — beats demonstrating
+  it with a category filter on Posts.
+- **`show_in_rest => true` is critical.** Without it, the Block Editor
+  falls back to classic editor and the Query Loop block cannot query
+  the CPT. This is the #1 gotcha for PHP devs migrating from classic
+  themes — explicit teaching moment in Task 5.
+- **Permalinks must be flushed** (Settings → Permalinks → Save Changes)
+  after first activation, otherwise `/projects/` returns 404. Standard
+  CPT gotcha.
 
 ### 3.3 No Build Step, FSE-Native Styling
 
@@ -225,14 +239,16 @@ Three places custom CSS may live, in priority order:
 
 ## 5. Templates
 
-| Template       | Purpose                                 | Built from                                                                                             |
-| -------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `index.html`   | Homepage — full Wapuu portfolio landing | header → hero → marquee → about → work-list → toolbox → writing-grid → community-events → cta → footer |
-| `single.html`  | Single post / project                   | header → post content → CTA → footer                                                                   |
-| `archive.html` | Portfolio category archive              | header → page header → Query Loop → footer                                                             |
-| `page.html`    | Generic page                            | header → page title → content → footer                                                                 |
-| `404.html`     | Terminal-style 404                      | header → terminal-error pattern → footer                                                               |
-| `search.html`  | Search results                          | header → search form → Query Loop → footer                                                             |
+| Template                 | Purpose                                 | Built from                                                                                             |
+| ------------------------ | --------------------------------------- | ------------------------------------------------------------------------------------------------------ | --- |
+| `index.html`             | Homepage — full Wapuu portfolio landing | header → hero → marquee → about → work-list → toolbox → writing-grid → community-events → cta → footer |
+| `archive-portfolio.html` | Portfolio CPT archive (`/projects/`)    | header → page header → Query Loop (post_type=portfolio) → footer                                       |
+| `single-portfolio.html`  | Single Portfolio project                | header → project hero → project content → CTA → footer                                                 |
+| `archive.html`           | Generic archive fallback (tags, dates)  | header → page header → Query Loop → footer                                                             |
+| `single.html`            | Generic single post fallback            | header → post content → CTA → footer                                                                   |
+| `page.html`              | Generic page                            | header → page title → content → footer                                                                 |
+| `404.html`               | Terminal-style 404                      | header → terminal-error pattern → footer                                                               |
+| `search.html`            | Search results                          | header → search form → Query Loop → footer                                                             |     |
 
 ---
 
@@ -253,7 +269,10 @@ All patterns registered under category `portfolio-fse` (registered in
 | `community-events` | features       | `index.html`              |
 | `cta-section`      | call-to-action | `index.html`, `page.html` |
 
-`functions.php` does **only** pattern category registration. Nothing else.
+`functions.php` registers three things on `init`: the pattern category,
+the `portfolio` CPT, and the `technology` taxonomy. Nothing else — no
+style enqueue, no nav menu registration, no widgets, no customizer.
+Font enqueue is handled by `theme.json` `typography.fontFamilies.fontFace`.
 
 ---
 
@@ -289,6 +308,15 @@ Each maps to one of the workshop checkpoint branches.
         `theme.json` `typography.fontFamilies.fontFace`
 
 - [ ] **Task 4 — `03-patterns` branch.** Build patterns per Section 6.
+  - [ ] Bootstrap `functions.php`:
+    - [ ] Register `portfolio-fse` pattern category
+    - [ ] Register `portfolio` CPT (`show_in_rest => true`,
+          `has_archive => true`, rewrite slug `projects`)
+    - [ ] Register `technology` taxonomy (`show_in_rest => true`)
+  - [ ] Flush permalinks (Settings → Permalinks → Save) — required
+        for `/projects/` URL to work
+  - [ ] Smoke test: create one test Project in admin, confirm
+        `/projects/test-project/` loads on frontend
   - [ ] Header part (`parts/header.html`)
   - [ ] Footer part (`parts/footer.html`)
   - [ ] `hero` pattern
@@ -296,17 +324,20 @@ Each maps to one of the workshop checkpoint branches.
   - [ ] `about-section` pattern
   - [ ] `toolbox` pattern
   - [ ] `cta-section` pattern
-  - [ ] Register pattern category in `functions.php`
   - [ ] Build `index.html` template assembling these patterns
 
 - [ ] **Task 5 — `04-portfolio-archive` branch.**
   - [ ] `project-card` pattern (used inside Query Loop)
-  - [ ] `work-list` pattern (Query Loop wrapping project-card, filtered to
-        `portfolio` category)
-  - [ ] `archive.html` template using Query Loop
+  - [ ] `work-list` pattern (Query Loop on `portfolio` post type,
+        wrapping `project-card`)
+  - [ ] `archive-portfolio.html` template — Query Loop on `portfolio` CPT
+  - [ ] `single-portfolio.html` template
   - [ ] Add `work-list` pattern to `index.html`
-  - [ ] `writing-grid` pattern (Query Loop for blog posts)
+  - [ ] `writing-grid` pattern (Query Loop on Posts — keep for blog)
   - [ ] `community-events` pattern
+  - [ ] Demonstrate template hierarchy:
+        `archive-portfolio.html` → `archive.html` → `index.html`
+        as fallback chain (live demo: rename and reload)
 
 - [ ] **Task 6 — `05-governance` branch.** Apply locking per Section 7.
   - [ ] Template-level lock on header / footer parts
