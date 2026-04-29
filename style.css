@@ -14,3 +14,40 @@ Text Domain: portfolio-fse
 Tags: block-theme, full-site-editing, portfolio, dark-mode
 */
 
+/* Font size line-height overrides */
+.has-xx-large-font-size {
+    line-height: 1.15;
+}
+
+.has-huge-font-size {
+    line-height: 1.05;
+}
+
+/* Button styles */
+.wp-block-button .wp-block-button__link {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.wp-block-button.is-style-primary .wp-block-button__link:hover,
+.wp-block-button.is-style-primary .wp-block-button__link:focus-visible {
+    background-color: var(--wp--preset--color--transparent);
+    color: var(--wp--preset--color--accent-secondary);
+}
+
+.wp-block-button.is-style-secondary .wp-block-button__link:hover,
+.wp-block-button.is-style-secondary .wp-block-button__link:focus-visible {
+    background-color: var(--wp--preset--color--foreground-muted);
+}
+
+/* Code block styles */
+code {
+    background-color: var(--wp--preset--color--surface-light-alt);
+    color: var(--wp--preset--color--foreground-muted);
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: 0.9em;
+    padding: 0.15em 0.4em;
+    border: 1px solid var(--wp--preset--color--border-light);
+}
