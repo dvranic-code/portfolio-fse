@@ -13,8 +13,29 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+add_action( 'wp_enqueue_scripts', 'portfolio_fse_enqueue_styles' );
+
+/**
+ * Enqueue theme styles.
+ *
+ * @return void
+ */
+function portfolio_fse_enqueue_styles() {
+    wp_enqueue_style(
+        'portfolio-fse-style',
+        get_stylesheet_uri(),
+        array(),
+        wp_get_theme()->get( 'Version' )
+    );
+}
+
 add_action( 'init', 'portfolio_fse_register_pattern_categories' );
 
+/**
+ * Register custom block pattern category.
+ *
+ * @return void
+ */
 function portfolio_fse_register_pattern_categories() {
     register_block_pattern_category(
         'portfolio-fse',
@@ -27,6 +48,11 @@ function portfolio_fse_register_pattern_categories() {
 
 add_action( 'init', 'portfolio_fse_register_post_types' );
 
+/**
+ * Register custom post type for portfolio projects.
+ *
+ * @return void
+ */
 function portfolio_fse_register_post_types() {
     register_post_type(
         'portfolio',
@@ -57,6 +83,11 @@ function portfolio_fse_register_post_types() {
 
 add_action( 'init', 'portfolio_fse_register_taxonomies' );
 
+/**
+ * Register custom taxonomy for portfolio projects.
+ *
+ * @return void
+ */
 function portfolio_fse_register_taxonomies() {
     register_taxonomy(
         'technology',
@@ -76,6 +107,31 @@ function portfolio_fse_register_taxonomies() {
             'show_in_rest'      => true,
             'show_admin_column' => true,
             'rewrite'           => array( 'slug' => 'tech' ),
+        )
+    );
+}
+
+add_action( 'init', 'portfolio_fse_register_button_styles' );
+
+/**
+ * Register custom block styles for buttons.
+ *
+ * @return void
+ */
+function portfolio_fse_register_button_styles() {
+    register_block_style(
+        'core/button',
+        array(
+            'name'         => 'primary',
+            'label'        => __( 'Primary', 'portfolio-fse' ),
+        )
+    );
+
+    register_block_style(
+        'core/button',
+        array(
+            'name'         => 'secondary',
+            'label'        => __( 'Secondary', 'portfolio-fse' ),
         )
     );
 }

@@ -190,7 +190,7 @@
 				{
 					"name": "Foreground Light",
 					"slug": "foreground-light",
-					"color": "#faf8f4"
+					"color": "#ffffff"
 				},
 				{
 					"name": "Accent Primary",
@@ -222,12 +222,19 @@
 	},
 	"styles": {
 		"typography": {
-			"fontFamily": "var:preset|font-family|sans"
+			"fontFamily": "var:preset|font-family|sans",
+			"lineHeight": "1.5",
+			"fontSize": "var:preset|font-size|medium"
+		},
+		"color": {
+			"background": "var:preset|color|surface-light",
+			"text": "var:preset|color|foreground"
 		},
 		"elements": {
 			"h1": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|mono"
+					"fontFamily": "var:preset|font-family|mono",
+					"lineHeight": "1"
 				}
 			},
 			"h2": {
@@ -254,6 +261,83 @@
 				"typography": {
 					"fontFamily": "var:preset|font-family|mono"
 				}
+			},
+			"button": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|mono",
+					"fontSize": "var:preset|font-size|small",
+					"fontWeight": "700",
+					"textTransform": "lowercase",
+					"letterSpacing": "0.05em"
+				},
+				"border": {
+					"radius": "0"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|30",
+						"bottom": "var:preset|spacing|30",
+						"left": "var:preset|spacing|50",
+						"right": "var:preset|spacing|50"
+					}
+				}
+			},
+			"link": {
+				"typography": {
+					"textDecoration": "none"
+				},
+				"color": {
+					"text": "var:preset|color|accent-secondary"
+				},
+				":hover": {
+					"color": {
+						"text": "var:preset|color|foreground-muted"
+					},
+					"typography": {
+						"textDecoration": "underline"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/button": {
+				"variations": {
+					"primary": {
+						"color": {
+							"background": "var:preset|color|accent-secondary",
+							"text": "var:preset|color|foreground-light"
+						},
+						"border": {
+							"color": "var:preset|color|accent-secondary",
+							"width": "1px",
+							"style": "solid"
+						},
+						"_comment_hover": "Variation-level :hover requires WP 7.0. In 6.9 hover lives in style.css.",
+						":hover": {
+							"color": {
+								"background": "transparent",
+								"text": "var:preset|color|accent-secondary"
+							}
+						}
+					},
+					"secondary": {
+						"color": {
+							"background": "transparent",
+							"text": "var:preset|color|foreground-light"
+						},
+						"border": {
+							"color": "var:preset|color|foreground-muted",
+							"width": "1px",
+							"style": "solid"
+						},
+						"_comment_hover": "Variation-level :hover requires WP 7.0. In 6.9 hover lives in style.css.",
+						":hover": {
+							"color": {
+								"background": "var:preset|color|foreground-muted"
+							}
+						}
+					}
+				}
 			}
 		}
 	},
@@ -265,6 +349,13 @@
 		{
 			"area": "footer",
 			"name": "footer"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "page-no-title",
+			"title": "Page No Title",
+			"postTypes": ["page"]
 		}
 	],
 	"version": 3
