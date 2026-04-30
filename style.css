@@ -51,3 +51,61 @@ code {
     padding: 0.15em 0.4em;
     border: 1px solid var(--wp--preset--color--border-light);
 }
+
+.project-card__tags .taxonomy-technology {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-card__tags .wp-block-post-terms__separator {
+    display: none;
+}
+
+.project-card__tags a {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--wp--preset--color--border-light);
+}
+
+.project-card__tags a::before {
+    content: "#";
+}
+
+/* Responsive and breakpoints */
+@media (max-width: 1023px) {
+    .project-card__tags,
+    .project-card__cover {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-row {
+        flex-wrap: nowrap !important;
+        align-items: center;
+    }
+    
+    .project-card__main {
+        min-width: 0 !important;
+        flex: 0 0 50% !important;
+    }
+    
+    .project-card__main p,
+    .project-card__main h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .project-card__tags {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .project-card__cover {
+        flex: 0 0 281px
+    }
+}
