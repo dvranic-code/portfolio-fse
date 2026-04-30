@@ -76,7 +76,7 @@ function portfolio_fse_register_post_types() {
             'menu_position'       => 20,
             'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
             'rewrite'             => array( 'slug' => 'projects' ),
-            'taxonomies'          => array( 'technology' ),
+            'taxonomies'          => array( 'technology', 'project_type' ),
         )
     );
 }
@@ -107,6 +107,22 @@ function portfolio_fse_register_taxonomies() {
             'show_in_rest'      => true,
             'show_admin_column' => true,
             'rewrite'           => array( 'slug' => 'tech' ),
+        )
+    );
+
+    register_taxonomy(
+        'project_type',
+        array( 'portfolio' ),
+        array(
+            'labels'            => array(
+                'name'          => __( 'Project Types', 'portfolio-fse' ),
+                'singular_name' => __( 'Project Type', 'portfolio-fse' ),
+            ),
+            'public'            => true,
+            'hierarchical'      => false,
+            'show_in_rest'      => true,
+            'show_admin_column' => true,
+            'rewrite'           => array( 'slug' => 'project-type' ),
         )
     );
 }
