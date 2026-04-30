@@ -239,12 +239,16 @@
 			},
 			"h2": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|mono"
+					"fontFamily": "var:preset|font-family|mono",
+					"lineHeight": "1.05",
+					"fontSize": "var-preset|font-size|xx-large"
 				}
 			},
 			"h3": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|mono"
+					"fontFamily": "var:preset|font-family|mono",
+					"fontSize": "var-preset|font-size|large",
+					"lineHeight": "1.2"
 				}
 			},
 			"h4": {
