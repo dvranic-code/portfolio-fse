@@ -109,3 +109,76 @@ code {
         flex: 0 0 281px
     }
 }
+
+/* =============================================================================
+ * Site header
+ * ========================================================================== */
+
+.site-header {
+    min-height: 60px;
+}
+
+.site-header__brand {
+    align-items: baseline;
+}
+
+/* Animated cursor blink on $ prompt */
+.site-header__cursor {
+    animation: cursor-blink 1.2s steps(2, jump-none) infinite;
+}
+
+@keyframes cursor-blink {
+    50% { opacity: 0.2; }
+}
+
+/* Navigation — desktop */
+.site-header__nav .wp-block-navigation__container {
+    gap: var(--wp--preset--spacing--40);
+}
+
+.site-header__nav .wp-block-navigation-item__content {
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+/* Underline active page in navigation */
+.site-header__nav .current-menu-item .wp-block-navigation-item__content {
+    color: var(--wp--preset--color--accent-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}
+
+/* Responsive — bump overlay breakpoint to 900px (default is 600px) */
+@media (max-width: 899px) {
+    .site-header__nav .wp-block-navigation__responsive-container:not(.is-menu-open) {
+        display: none;
+    }
+    
+    .site-header__nav .wp-block-navigation__responsive-container-open {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 900px) {
+    .site-header__nav .wp-block-navigation__responsive-container-open {
+        display: none !important;
+    }
+    
+    .site-header__nav .wp-block-navigation__responsive-container {
+        display: flex !important;
+        background: transparent !important;
+    }
+}
+
+/* Mobile overlay menu styling */
+.wp-block-navigation__responsive-container.is-menu-open {
+    background: var(--wp--preset--color--background);
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--50);
+    font-size: var(--wp--preset--font-size--large);
+}
