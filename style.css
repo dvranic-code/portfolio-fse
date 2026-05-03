@@ -42,6 +42,14 @@ Tags: block-theme, full-site-editing, portfolio, dark-mode
     background-color: var(--wp--preset--color--foreground-muted);
 }
 
+.is-flush-top {
+    margin-top: 0 !important;
+}
+
+.is-flush-bottom {
+    margin-bottom: 0 !important;
+}
+
 /* Code block styles */
 code {
     background-color: var(--wp--preset--color--surface-light-alt);
@@ -186,6 +194,11 @@ code {
 /* =============================================================================
  * Site footer
  * ========================================================================== */
+
+
+footer {
+    margin-top: 0;
+}
 
 .site-footer {
     position: relative;

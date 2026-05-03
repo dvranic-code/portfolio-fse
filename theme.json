@@ -222,7 +222,7 @@
 	},
 	"styles": {
 		"spacing": {
-			"blockGap": "0px"
+			"blockGap": "24px"
 		},
 		"typography": {
 			"fontFamily": "var:preset|font-family|sans",

@@ -8,8 +8,8 @@
  * 
  */
 ?>
-<!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground-light"}}},"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50","top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"background","textColor":"foreground-light","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-foreground-light-color has-background-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<!-- wp:group {"className":"is-flush-top","style":{"elements":{"link":{"color":{"text":"var:preset|color|foreground-light"}}},"spacing":{"padding":{"right":"var:preset|spacing|50","left":"var:preset|spacing|50","top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"background","textColor":"foreground-light","layout":{"type":"constrained"}} -->
+<div class="wp-block-group is-flush-top has-foreground-light-color has-background-background-color has-text-color has-background has-link-color" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)"><!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"0"}}},"fontSize":"xx-large"} -->
 <h2 class="wp-block-heading has-text-align-center has-xx-large-font-size" style="margin-bottom:0">Let's <mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-secondary-color">collaborate</mark>.</h2>
 <!-- /wp:heading -->
