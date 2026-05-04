@@ -221,6 +221,9 @@
 		}
 	},
 	"styles": {
+		"spacing": {
+			"blockGap": "24px"
+		},
 		"typography": {
 			"fontFamily": "var:preset|font-family|sans",
 			"lineHeight": "1.5",
