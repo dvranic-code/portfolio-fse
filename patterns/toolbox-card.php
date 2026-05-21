@@ -8,7 +8,7 @@
  * 
  */
 ?>
-<!-- wp:group {"layout":{"type":"constrained"}} -->
+<!-- wp:group {"templateLock":"contentOnly","layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:group {"className":"toolbox-card","style":{"border":{"width":"1px"},"spacing":{"blockGap":"0"}},"borderColor":"border-light","layout":{"type":"constrained"}} -->
 <div class="wp-block-group toolbox-card has-border-color has-border-light-border-color" style="border-width:1px"><!-- wp:group {"className":"toolbox-card__head","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"elements":{"link":{"color":{"text":"var:preset|color|accent-primary"}}},"border":{"bottom":{"color":"var:preset|color|border-light","width":"1px"},"top":[],"right":[],"left":[]}},"backgroundColor":"surface-light-alt","textColor":"accent-primary","layout":{"type":"constrained"}} -->
 <div class="wp-block-group toolbox-card__head has-accent-primary-color has-surface-light-alt-background-color has-text-color has-background has-link-color" style="border-bottom-color:var(--wp--preset--color--border-light);border-bottom-width:1px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--50)"><!-- wp:heading {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} -->
