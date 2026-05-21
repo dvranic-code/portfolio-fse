@@ -7,7 +7,14 @@
 			"wideSize": "1440px"
 		},
 		"spacing": {
-			"units": [ "%", "px", "em", "rem", "vh", "vw" ],
+			"units": [
+				"%",
+				"px",
+				"em",
+				"rem",
+				"vh",
+				"vw"
+			],
 			"spacingScale": {
 				"operator": "*",
 				"increment": 1.5,
@@ -316,7 +323,7 @@
 						},
 						"border": {
 							"color": "var:preset|color|accent-secondary",
-							"width": "1px",
+							"width": "2px",
 							"style": "solid"
 						},
 						"_comment_hover": "Variation-level :hover requires WP 7.0. In 6.9 hover lives in style.css.",
@@ -330,11 +337,11 @@
 					"secondary": {
 						"color": {
 							"background": "transparent",
-							"text": "var:preset|color|foreground-light"
+							"text": "var:preset|color|foreground-muted"
 						},
 						"border": {
 							"color": "var:preset|color|foreground-muted",
-							"width": "1px",
+							"width": "2px",
 							"style": "solid"
 						},
 						"_comment_hover": "Variation-level :hover requires WP 7.0. In 6.9 hover lives in style.css.",
@@ -362,7 +369,9 @@
 		{
 			"name": "page-no-title",
 			"title": "Page No Title",
-			"postTypes": ["page"]
+			"postTypes": [
+				"page"
+			]
 		}
 	],
 	"version": 3
