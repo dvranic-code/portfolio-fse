@@ -4,7 +4,7 @@ Theme URI:
 Author: Dejan Rudić Vranić
 Author URI: 
 Description: Workshop demo theme — WCEU 2026 Kraków. Build your developer portfolio with FSE & block themes.
-Requires at least: 6.9
+Requires at least: 6.6
 Tested up to: 6.9
 Requires PHP: 8.0
 Version: 1.0.0
@@ -33,13 +33,14 @@ Tags: block-theme, full-site-editing, portfolio, dark-mode
 
 .wp-block-button.is-style-primary .wp-block-button__link:hover,
 .wp-block-button.is-style-primary .wp-block-button__link:focus-visible {
-    background-color: var(--wp--preset--color--transparent);
+    background-color: var(--wp--preset--color--background);
     color: var(--wp--preset--color--accent-secondary);
 }
 
 .wp-block-button.is-style-secondary .wp-block-button__link:hover,
 .wp-block-button.is-style-secondary .wp-block-button__link:focus-visible {
     background-color: var(--wp--preset--color--foreground-muted);
+    color: var(--wp--preset--color--foreground-light);
 }
 
 .is-flush-top {
@@ -84,6 +85,7 @@ code {
 
 /* Responsive and breakpoints */
 @media (max-width: 1023px) {
+
     .project-card__tags,
     .project-card__cover {
         flex: 1 1 100% !important;
@@ -96,12 +98,12 @@ code {
         flex-wrap: nowrap !important;
         align-items: center;
     }
-    
+
     .project-card__main {
         min-width: 0 !important;
         flex: 0 0 50% !important;
     }
-    
+
     .project-card__main p,
     .project-card__main h3 {
         word-wrap: break-word;
@@ -136,7 +138,9 @@ code {
 }
 
 @keyframes cursor-blink {
-    50% { opacity: 0.2; }
+    50% {
+        opacity: 0.2;
+    }
 }
 
 /* Navigation — desktop */
@@ -163,7 +167,7 @@ code {
     .site-header__nav .wp-block-navigation__responsive-container:not(.is-menu-open) {
         display: none;
     }
-    
+
     .site-header__nav .wp-block-navigation__responsive-container-open {
         display: flex !important;
     }
@@ -173,7 +177,7 @@ code {
     .site-header__nav .wp-block-navigation__responsive-container-open {
         display: none !important;
     }
-    
+
     .site-header__nav .wp-block-navigation__responsive-container {
         display: flex !important;
         background: transparent !important;
@@ -211,15 +215,13 @@ footer {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(
-        to right,
-        var(--wp--preset--color--accent-secondary) 0%,
-        var(--wp--preset--color--accent-secondary) 33.33%,
-        var(--wp--preset--color--accent-primary) 33.33%,
-        var(--wp--preset--color--accent-primary) 66.66%,
-        var(--wp--preset--color--accent-tertiary) 66.66%,
-        var(--wp--preset--color--accent-tertiary) 100%
-    );
+    background: linear-gradient(to right,
+            var(--wp--preset--color--accent-secondary) 0%,
+            var(--wp--preset--color--accent-secondary) 33.33%,
+            var(--wp--preset--color--accent-primary) 33.33%,
+            var(--wp--preset--color--accent-primary) 66.66%,
+            var(--wp--preset--color--accent-tertiary) 66.66%,
+            var(--wp--preset--color--accent-tertiary) 100%);
 }
 
 .site-footer__brand-mark {
@@ -376,22 +378,22 @@ footer {
     .site-footer__banner {
         flex-direction: column;
     }
-    
+
     .site-footer__meta {
         text-align: left !important;
     }
-    
+
     .site-footer__meta p {
         text-align: left !important;
     }
-    
+
     .site-footer__bottom,
     .site-footer__legal {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--wp--preset--spacing--30);
     }
-    
+
     .site-footer__brand-mark {
         font-size: var(--wp--preset--font-size--xx-large) !important;
     }
