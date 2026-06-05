@@ -75,7 +75,7 @@
 
 <!-- wp:column {"verticalAlignment":"center","width":"40%","style":{"spacing":{"blockGap":"0","padding":{"left":"var:preset|spacing|50"}}}} -->
 <div class="wp-block-column is-vertically-aligned-center" style="padding-left:var(--wp--preset--spacing--50);flex-basis:40%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center"} -->
-<figure class="wp-block-image aligncenter size-full"><img src="http://developer-portfolio.local/wp-content/uploads/2026/04/wapuujlo-540x601-1.png" alt=""/></figure>
+<figure class="wp-block-image aligncenter size-full"><img src="/wp-content/uploads/2026/04/wapuujlo-540x601-1.png" alt=""/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
